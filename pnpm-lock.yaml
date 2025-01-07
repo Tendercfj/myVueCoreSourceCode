@@ -4,6 +4,8 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+packageExtensionsChecksum: 0609117e5abb081f6a37ffa2efee5213
+
 importers:
 
   .:
@@ -25,8 +27,8 @@ importers:
   packages/reactivity:
     dependencies:
       '@vue/shared':
-        specifier: workspace:^
-        version: link:../shared
+        specifier: ^3.5.13
+        version: 3.5.13
 
   packages/shared: {}
 

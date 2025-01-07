@@ -1,5 +1,5 @@
 {
-  "name": "VUE-3.4",
+  "name": "VUE_3.4",
   "private": true,
   "version": "1.0.0",
   "description": "",
@@ -8,6 +8,9 @@
   "scripts": {
     "dev": "node scripts/dev.js reactivity -f esm"
   },
+  "workspaces": [
+    "packages/*"
+  ],
   "keywords": [],
   "author": "",
   "license": "ISC",

@@ -1,1 +1,2 @@
-import { isObject } from "@vue/shared";
+export * from '../../reactivity/src/effect'
+export * from '../../reactivity/src/reactive'

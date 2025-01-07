@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app"></div>
+  <script type="module">
+    import { reactive, effect } from '../dist/reactivity.js';
+    // reactive 让数据变成响应式的
+    // effect 让副作用函数自动执行，数据变换后可以让effect重新执行，像组件、watch、computed 都是基于effect来实现的
+    const state = reactive({ name: 'atlasv', age: 28 })
+    console.log(state.name, state.age)
+    // effect(() => {
+    //   app.innerHtml = `Hello ${state.name}, your age is ${state.age}`
+    // })
+    // setTimeout(() => {
+    //   state.age++ // 数据变化后，effect会自动重新执行，需要注意的是effect在最开始的时候会自动执行一次
+    // }, 1000)
+
+  </script>
+</body>
+
+</html>
