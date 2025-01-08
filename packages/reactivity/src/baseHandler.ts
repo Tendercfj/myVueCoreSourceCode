@@ -1,3 +1,6 @@
+import { activeEffect } from "./effect"
+import { track } from "./reactiveEffect"
+
 // 用于标记响应式对象
 export enum ReactiveFlags {
   IS_REACTIVE = "__v_isReactive"
@@ -11,6 +14,8 @@ export const mutableHandles:ProxyHandler<any> = {
     // debugger
 
     // TODO:依赖收集
+    track(target,key) //收集这个对象上的属性，和effect关联在一起
+    // console.log(activeEffect,key)
 
     return Reflect.get(target,key,receiver)
     // 当取值的时候  应该让响应式属性和effect映射起来
