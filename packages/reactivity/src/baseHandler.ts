@@ -1,5 +1,5 @@
 import { activeEffect } from "./effect"
-import { track } from "./reactiveEffect"
+import { track, trigger } from "./reactiveEffect"
 
 // 用于标记响应式对象
 export enum ReactiveFlags {
@@ -23,8 +23,16 @@ export const mutableHandles:ProxyHandler<any> = {
   set(target,key,value,receiver){
     // 找到属性，让对应的effect重新执行
 
+    let oldValue = target[key]
+
+    let result = Reflect.set(target,key,value,receiver)
+    if(oldValue !== value){
+      // 触发更新
+      trigger(target,key,value,oldValue)
+    }
+
     // TODO:触发更新
-    return Reflect.set(target,key,value,receiver)
+    return result
     
   }
 } 
