@@ -8,6 +8,14 @@ export const effect = (fn,options?)=> {
     _effect.run()
   })
   _effect.run() // 默认执行一次
+
+  if(options){
+    Object.assign(_effect,options) // 用用户传递的，覆盖默认的配置 
+  }
+
+    const runner = _effect.run.bind(_effect) // 绑定一下，方便调用
+    runner.effect = _effect // 绑定一下，方便取值
+    return runner // 返回一个函数，执行副作用函数 
 }
 
 export let activeEffect;
